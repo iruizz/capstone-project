@@ -7,5 +7,5 @@ export default function Datahub() {
             <Link href='datahub/live'>Live</Link> <br />
             <Link href='datahub/historic'>Historic</Link>
         </main>
-    )
+    );
 }

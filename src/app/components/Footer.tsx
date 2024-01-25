@@ -6,7 +6,7 @@ export default function Footer(){
 <div className="b-example-divider"></div>
     <div className="container">
         {/* This is the three vertical lists that contain information about the website and links*/}
-        <footer className="pt-4 bg-dark">
+        <footer className="pt-4">
         <div className="row">
         <div className="col-6 col-md-2 mb-2">
             <h5 className="text-light">Links</h5>
@@ -54,24 +54,24 @@ export default function Footer(){
 
         </div>
         {/*This is where we modify links to social media sites currently display Twitter, Insta, and Facebook*/}
-        <div className="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 border-top text-light">
-        <p>© 2024 Loras College Baja. All rights reserved.</p>
+        <div className="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 border-top">
+        <p className="text-light">© 2024 Loras College Baja. All rights reserved.</p>
         <ul className="list-unstyled d-flex">
             <li>
-            <h4 className="mt-1">Follow Us:</h4> 
+            <h4 className="mt-1 text-light">Follow Us:</h4> 
             </li>
             <li className="ms-3">
-                <a className="text-light " href="#">
+                <a className="link-body-emphasis text-light " href="#">
                 <i className="bi bi-twitter-x icon-size" ></i>
                 </a>
             </li>
             <li className="ms-3">
-                <a className="text-light" href="#">
+                <a className="link-body-emphasis text-light" href="#">
                 <i className="bi bi-instagram icon-size"></i>
                 </a>
             </li>
             <li className="ms-3">
-                <a className="text-light" href="#">
+                <a className="link-body-emphasis text-light" href="#">
                 <i className="bi bi-facebook icon-size"></i>
                 </a>
             </li>
