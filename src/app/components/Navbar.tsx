@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default async function Navbar() {
+export default function Navbar() {
     {/* Links to display on navbar (REQ-TAG)*/}
   const links = [
     { name: 'Home', href: '/' },
@@ -12,8 +12,7 @@ export default async function Navbar() {
   ];
 
   return (
-    <header>
-    <nav style={{ zIndex: 1 }} className="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark ">
+    <nav className="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
       {/* Logo Image (REQ-TAG)*/}
       <Image
         src="/navbarLogo.png"
@@ -64,6 +63,5 @@ export default async function Navbar() {
         </ul>
       </div>
     </nav>
-    </header>
   );
 }
