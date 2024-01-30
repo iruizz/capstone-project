@@ -12,7 +12,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-black bg-gradient">
       {/* Logo Image (REQ-TAG)*/}
       <Image
         src="/navbarLogo.png"

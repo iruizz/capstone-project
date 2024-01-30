@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer(){
     return(
-<div className="bg-dark">
+<div className="bg-black bg-gradient">
 <div className="b-example-divider"></div>
     <div className="container">
         {/* This is the three vertical lists that contain information about the website and links*/}
@@ -11,31 +11,31 @@ export default function Footer(){
         <div className="col-6 col-md-2 mb-2">
             <h5 className="text-light">Links</h5>
             <ul className="nav flex-column">
-            <li className="nav-item mb-2 text-secondary"><a href="#" className="nav-link p-0 text-secondary">Home</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary">News & Events</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary">Sponsors</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary">Datahub</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary">About</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Home</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">News & Events</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Sponsors</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Datahub</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">About</a></li>
             </ul>
         </div>
         <div className="col-6 col-md-2 mb-2">
             <h5 className="text-light">Licensing</h5>
             <ul className="nav flex-column">
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary">Bootstrap</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary">Etc.</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary">Etc.</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary">Etc.</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary">Etc.</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Bootstrap</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
             </ul>
         </div>
         <div className="col-6 col-md-2 mb-2">
             <h5 className="text-light">Contacts</h5>
             <ul className="nav flex-column">
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary">Email</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary">Etc.</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary">Etc.</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary">Etc.</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-secondary ">Etc.</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Email</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
+            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary ">Etc.</a></li>
             </ul>
         </div>
 
@@ -61,7 +61,7 @@ export default function Footer(){
             <h4 className="mt-1 text-light">Follow Us:</h4> 
             </li>
             <li className="ms-3">
-                <a className="link-body-emphasis text-light " href="#">
+                <a className="link-body-emphasis text-light" href="#">
                 <i className="bi bi-twitter-x icon-size" ></i>
                 </a>
             </li>

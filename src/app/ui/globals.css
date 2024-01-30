@@ -1,3 +1,10 @@
 .icon-size {
   font-size: 1.5rem;
 }
+
+.bi-twitter-x:hover,
+.bi-instagram:hover,
+.bi-facebook:hover {
+  /* hover styles for icons */
+  color: #660099;
+}
