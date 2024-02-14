@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { options } from "../api/auth/[...nextauth]/options"
+import { getServerSession } from "next-auth/next"
 
-export default function Navbar() {
+export default async function Navbar() {
+  const session = await getServerSession(options);
     {/* Links to display on navbar (REQ-TAG)*/}
   const links = [
     { name: 'Home', href: '/' },
@@ -50,16 +53,18 @@ export default function Navbar() {
                 </Link>
             </li>
           ))}
-
-          {/* Conditional rendering of logout button, only shows up if authenticated currently no auth setup so always show (REQ-TAG)*/}
-          {true && (
-            <li className="nav-item">
-              <Link href="#" className="mx-3 nav-link">
-                Logout
-              </Link>
-            </li>
-          )}
-
+        
+        {/* Logout link aligned to the right */}
+        {session && (
+            <li className="nav-item d-flex justify-content-end">
+            <Link
+              href="/api/auth/signout?callbackUrl=/"
+              className="mx-3 nav-link text-purple"
+            >
+              Logout
+            </Link>
+          </li>
+        )}
         </ul>
       </div>
     </nav>

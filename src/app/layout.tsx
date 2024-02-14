@@ -6,7 +6,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import BootstrapClient from './components/BootstrapClient';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import 'bootstrap-icons/font/bootstrap-icons.css'
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import AuthProvider from './context/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,11 +24,14 @@ export default function RootLayout({
   return (
     
     <html lang="en">
+      
       <BootstrapClient /> {/* Render BootstrapClient first */}
       <body className={inter.className}>
+      <AuthProvider>
       <Navbar/> {/* This will always show the Navbar at the top of every page*/}
       {children}
       <Footer/> {/* This will always show the Footer at the bottom of every page*/}
+      </AuthProvider>
       </body> 
     </html>
   )

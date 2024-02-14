@@ -8,7 +8,7 @@ export default function Footer(){
         {/* This is the three vertical lists that contain information about the website and links*/}
         <footer className="pt-4">
         <div className="row">
-        <div className="col-6 col-md-2 mb-2">
+        <div className="col-6 col-md-2  mb-2">
             <h5 className="text-light">Links</h5>
             <ul className="nav flex-column">
             <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Home</a></li>
