@@ -1,10 +1,10 @@
 export default function News() {
     return (
         <main>
+          <section>
             <h1 className="text-center">News Page</h1>
             <div className="container px-4 py-5" >
     <h2 className="pb-2 border-bottom text-center">News & Events</h2>
-
     <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
       <div className="col">
         <div className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style={{  backgroundSize: 'cover' , backgroundImage: `url('https://images.unsplash.com/photo-1698664683348-f9f35b809821?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}>
@@ -88,7 +88,7 @@ export default function News() {
           </div>
         </div>
       </div>
-      
+
     </div>
     
     
@@ -157,8 +157,8 @@ export default function News() {
         </div>
       </div>
     </div>
-    
   </div>
+  </section>
   </main>
     );
 }

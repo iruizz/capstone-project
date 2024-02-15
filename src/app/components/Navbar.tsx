@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { options } from "../api/auth/[...nextauth]/options"
 import { getServerSession } from "next-auth/next"
+import SignOutButton from "@/app/components/SignOutButton";
 
 export default async function Navbar() {
   const session = await getServerSession(options);
@@ -55,16 +56,7 @@ export default async function Navbar() {
           ))}
         
         {/* Logout link aligned to the right */}
-        {session && (
-            <li className="nav-item d-flex justify-content-end">
-            <Link
-              href="/api/auth/signout?callbackUrl=/"
-              className="mx-3 nav-link text-purple"
-            >
-              Logout
-            </Link>
-          </li>
-        )}
+        <SignOutButton />
         </ul>
       </div>
     </nav>

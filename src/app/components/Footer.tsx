@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer(){
     return(
@@ -11,31 +12,31 @@ export default function Footer(){
         <div className="col-6 col-md-2  mb-2">
             <h5 className="text-light">Links</h5>
             <ul className="nav flex-column">
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Home</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">News & Events</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Sponsors</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Datahub</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">About</a></li>
+            <li className="nav-item mb-2"><Link href="/" className="nav-link p-0 link-secondary">Home</Link></li>
+            <li className="nav-item mb-2"><Link href="/news" className="nav-link p-0 link-secondary">News & Events</Link></li>
+            <li className="nav-item mb-2"><Link href="/sponsors" className="nav-link p-0 link-secondary">Sponsors</Link></li>
+            <li className="nav-item mb-2"><Link href="/datahub" className="nav-link p-0 link-secondary">Datahub</Link></li>
+            <li className="nav-item mb-2"><Link href="/about" className="nav-link p-0 link-secondary">About</Link></li>
             </ul>
         </div>
         <div className="col-6 col-md-2 mb-2">
             <h5 className="text-light">Licensing</h5>
             <ul className="nav flex-column">
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Bootstrap</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
+            <li className="nav-item mb-2"><Link  href="https://getbootstrap.com/" className="nav-link p-0 link-secondary">Bootstrap</Link ></li>
+            <li className="nav-item mb-2"><Link  href="https://www.apache.org/licenses/" className="nav-link p-0 link-secondary">ECharts</Link ></li>
+            <li className="nav-item mb-2"><Link  href="#" className="nav-link p-0 link-secondary">Etc.</Link ></li>
+            <li className="nav-item mb-2"><Link  href="#" className="nav-link p-0 link-secondary">Etc.</Link ></li>
+            <li className="nav-item mb-2"><Link  href="#" className="nav-link p-0 link-secondary">Etc.</Link ></li>
             </ul>
         </div>
         <div className="col-6 col-md-2 mb-2">
             <h5 className="text-light">Contacts</h5>
             <ul className="nav flex-column">
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Email</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary">Etc.</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 link-secondary ">Etc.</a></li>
+            <li className="nav-item mb-2"><Link  href="#" className="nav-link p-0 link-secondary">Email</Link ></li>
+            <li className="nav-item mb-2"><Link  href="#" className="nav-link p-0 link-secondary">Etc.</Link ></li>
+            <li className="nav-item mb-2"><Link  href="#" className="nav-link p-0 link-secondary">Etc.</Link ></li>
+            <li className="nav-item mb-2"><Link  href="#" className="nav-link p-0 link-secondary">Etc.</Link ></li>
+            <li className="nav-item mb-2"><Link  href="#" className="nav-link p-0 link-secondary">Etc.</Link ></li>
             </ul>
         </div>
 
