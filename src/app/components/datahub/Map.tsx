@@ -144,7 +144,7 @@ const Map = () => {
     }, 100);
 
     return () => clearInterval(intervalId);
-  }, [currentIndex, isMoving, route]);
+  }, [currentIndex, isMoving]);
 
   return (
     <div className="h-100 w-100">

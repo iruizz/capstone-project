@@ -67,7 +67,7 @@ export default async function Navbar() {
             <SignOutButton />
             </ul>
             </div>
-            <img src="/lorasCrest.png" alt="Loras Crest" width="32" height="32" className="rounded-circle bg-light border border-white ml-2" />
+            <Image src="/lorasCrest.png" alt="Loras Crest" width={32} height={32}  className="rounded-circle bg-light border border-white ml-2" />
           </div>
         </div>
         )}

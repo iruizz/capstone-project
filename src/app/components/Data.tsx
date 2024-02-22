@@ -1,4 +1,4 @@
-'use client'
+{/*'use client'
 import { useState, useEffect } from 'react';
 
 interface Values {
@@ -75,4 +75,4 @@ export default function LiveDataDisplay() {
               >Send Data</button>
         </div>
     );
-}
+} */}

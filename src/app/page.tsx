@@ -16,10 +16,10 @@ export default function Home() {
           <div className="col-md-7">
             <h2 className="featurette-heading">Welcome to <span className="text-secondary">Loras Baja</span></h2>
             <p className="lead">Welcome to Loras Baja, where innovation meets excellence. Join us on an exciting journey through the world of off-road racing.</p>
-            <p className="lead mt-4">Loras College Engineering Students are making history by participating in competitions for the first time in the school's history. This initiative is not only fostering a spirit of innovation and competitiveness but also encouraging students to apply their theoretical knowledge in practical settings. By engaging in these competitions, engineering students are pushing the boundaries of their skills and gaining invaluable hands-on experience that will shape their future careers.</p>
+            <p className="lead mt-4">Loras College Engineering Students are making history by participating in competitions for the first time in the school%apos;s history. This initiative is not only fostering a spirit of innovation and competitiveness but also encouraging students to apply their theoretical knowledge in practical settings. By engaging in these competitions, engineering students are pushing the boundaries of their skills and gaining invaluable hands-on experience that will shape their future careers.</p>
           </div>
           <div className="col-md-5">
-          <img className="featurette-image img-fluid mx-auto card-content" alt="400x400" style={{width: '400px', height: '400px'}} src="https://fakeimg.pl/400x400/f9f2fa/150317?text=Image&font=bebas"/>
+          <Image className="featurette-image img-fluid mx-auto card-content" alt="400x400" width={400} height={400} src="https://fakeimg.pl/400x400/f9f2fa/150317?text=Image&font=bebas"/>
           </div>
         </div>
 
@@ -50,7 +50,7 @@ export default function Home() {
             <a href="your-data-telemetry-page-url" className="btn btn-primary">Access Data Hub</a>
           </div>
           <div className="col-md-5 order-md-1">
-          <img className="featurette-image img-fluid mx-auto card-content" alt="400x400" style={{width: '400px', height: '400px'}} src="https://fakeimg.pl/400x400/f9f2fa/150317?text=Image&font=bebas"/>
+          <Image className="featurette-image img-fluid mx-auto card-content" alt="400x400" width={400} height={400} src="https://fakeimg.pl/400x400/f9f2fa/150317?text=Image&font=bebas"/>
           </div>
         </div>
 
@@ -64,7 +64,7 @@ export default function Home() {
             <p className="lead">Join us in celebrating the invaluable contributions of our sponsors.</p>
           </div>
           <div className="col-md-5">
-          <img className="featurette-image img-fluid mx-auto card-content" alt="400x400" style={{width: '400px', height: '400px'}} src="https://fakeimg.pl/400x400/f9f2fa/150317?text=Image&font=bebas"/>
+          <Image className="featurette-image img-fluid mx-auto card-content" alt="400x400" width={400} height={400} src="https://fakeimg.pl/400x400/f9f2fa/150317?text=Image&font=bebas"/>
           </div>
         </div>
 

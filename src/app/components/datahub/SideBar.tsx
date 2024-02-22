@@ -50,17 +50,16 @@ export default function SideBar() {
             </ul>
             <div className="d-flex justify-content-center">
             <Image 
-        src="/weather.png" 
-        alt="Weather Image" 
-        width={50} 
-        height={50}
-
-    />
+                src="/weather.png" 
+                alt="Weather Image" 
+                width={50} 
+                height={50}
+            />
         </div>
         <hr/>
             <div className="dropdown">
                 <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="/lorasCrest.png" alt="" width="32" height="32" className="rounded-circle me-2"/>
+                    <Image src="/lorasCrest.png" alt="" width={32} height={32}  className="rounded-circle me-2"/>
                     <strong>User</strong>
                 </a>
                 <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
