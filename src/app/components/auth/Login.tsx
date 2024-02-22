@@ -17,7 +17,7 @@ const Login = (props: Props) => {
       username: userName.current,
       password: pass.current,
       redirect: true,
-      callbackUrl: props.callbackUrl ?? "http://localhost:3000",
+      callbackUrl: props.callbackUrl ?? "capstone-neon-psi.vercel.app",
     });
   };
   return (
