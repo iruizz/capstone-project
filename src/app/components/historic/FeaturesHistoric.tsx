@@ -5,7 +5,7 @@ export default function FeaturesHistoric() {
           <div className="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
               <div className="col d-flex flex-column align-items-start gap-4">
                   <h2 className="fw-bold">Left-aligned title explaining these awesome features</h2>
-                  <p className="text-body-light">Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                  <p className="text-body-light">Paragraph of text beneath the heading to explain the heading. We&apos;ll add onto it with another sentence and probably just keep going until we run out of words.</p>
                   <a href="#" className="btn btn-purple btn-lg text-center">Primary button</a>
               </div>
               <div className="col">
