@@ -1,3 +1,4 @@
+import Image from 'next/image';
 export default function News() {
     return (
 <main>
@@ -12,8 +13,7 @@ export default function News() {
             <h3 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h3>
             <ul className="d-flex list-unstyled mt-auto">
               <li className="me-auto">
-              <img src="/lorasCrest.png" alt="Loras Crest" width="32" height="32" className="rounded-circle bg-light border border-white">
-                </img>
+              <Image src="/lorasCrest.png" alt="Loras Crest" width={32} height={32}  className="rounded-circle bg-light border border-white"/>
               </li>
               <li className="d-flex align-items-center me-3">
                 <small>Frame Build</small>
@@ -33,8 +33,7 @@ export default function News() {
             <h3 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h3>
             <ul className="d-flex list-unstyled mt-auto ">
               <li className="me-auto">
-              <img src="/lorasCrest.png" alt="Loras Crest" width="32" height="32" className="rounded-circle bg-light border border-white">
-                </img>
+              <Image src="/lorasCrest.png" alt="Loras Crest" width={32} height={32}  className="rounded-circle bg-light border border-white"/>
               </li>
               <li className="d-flex align-items-center mx-3">
                 <small>RFA Sponsorship</small>
@@ -54,8 +53,7 @@ export default function News() {
             <h3 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h3>
             <ul className="d-flex list-unstyled mt-auto">
               <li className="me-auto">
-                <img src="/lorasCrest.png" alt="Loras Crest" width="32" height="32" className="rounded-circle bg-light border border-white">
-                </img>
+              <Image src="/lorasCrest.png" alt="Loras Crest" width={32} height={32}  className="rounded-circle bg-light border border-white"/>
               </li>
               <li className="d-flex align-items-center mx-3">
                 <small>Setting Up Sensors</small>
@@ -75,8 +73,7 @@ export default function News() {
             <h3 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h3>
             <ul className="d-flex list-unstyled mt-auto">
               <li className="me-auto">
-                <img src="/lorasCrest.png" alt="Loras Crest" width="32" height="32" className="rounded-circle bg-light border border-white">
-                </img>
+              <Image src="/lorasCrest.png" alt="Loras Crest" width={32} height={32}  className="rounded-circle bg-light border border-white"/>
               </li>
               <li className="d-flex align-items-center mx-3">
                 <small>Suspension Work</small>
@@ -102,8 +99,7 @@ export default function News() {
             <h3 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h3>
             <ul className="d-flex list-unstyled mt-auto">
               <li className="me-auto">
-              <img src="/lorasCrest.png" alt="Loras Crest" width="32" height="32" className="rounded-circle bg-light border border-white">
-                </img>
+              <Image src="/lorasCrest.png" alt="Loras Crest" width={32} height={32}  className="rounded-circle bg-light border border-white"/>
               </li>
               <li className="d-flex align-items-center me-3">
                 <small>First Build</small>
@@ -123,8 +119,7 @@ export default function News() {
             <h3 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h3>
             <ul className="d-flex list-unstyled mt-auto ">
               <li className="me-auto">
-              <img src="/lorasCrest.png" alt="Loras Crest" width="32" height="32" className="rounded-circle bg-light border border-white">
-                </img>
+              <Image src="/lorasCrest.png" alt="Loras Crest" width={32} height={32}  className="rounded-circle bg-light border border-white"/>
               </li>
               <li className="d-flex align-items-center mx-3">
                 <small>RFA Sponsorship</small>
@@ -144,8 +139,7 @@ export default function News() {
             <h3 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h3>
             <ul className="d-flex list-unstyled mt-auto">
               <li className="me-auto">
-                <img src="/lorasCrest.png" alt="Loras Crest" width="32" height="32" className="rounded-circle bg-light border border-white">
-                </img>
+              <Image src="/lorasCrest.png" alt="Loras Crest" width={32} height={32}  className="rounded-circle bg-light border border-white"/>
               </li>
               <li className="d-flex align-items-center mx-3">
                 <small>Setting Up Sensors</small>

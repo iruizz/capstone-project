@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Image from 'next/image'
 const CSTeam = () => {
   const teamMembers = [
     {
@@ -46,8 +46,14 @@ const CSTeam = () => {
           {teamMembers.map((member, index) => (
             <div key={index} className="col-xl-3 col-sm-6 mb-5">
               <div className="bg-white rounded shadow-sm py-5 px-4" >
-                <img src={member.imageUrl} alt="" width="100" className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm" />
-                <h5 className="mb-0 text-dark">{member.name}</h5>
+              <Image
+              src={member.imageUrl}
+              alt=""
+              width={100}
+              height={100}
+              className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
+            />
+          <h5 className="mb-0 text-dark">{member.name}</h5>
                 <div style={{height: '4em'}}>
                 <span className="small text-uppercase text-muted">{member.major}</span>
                 <p className="text-secondary small text-uppercase text-muted">{member.major2}</p>

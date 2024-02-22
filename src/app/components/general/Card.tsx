@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface CardProps {
   title: string;
@@ -18,7 +19,13 @@ const Card: React.FC<CardProps> = ({ title, imageUrl, description, date }) => {
           <h3 className="pt-3 pt-md-5 mt-3 mt-md-5 mb-3 mb-md-4 display-6 lh-1 fw-bold">{title}</h3>
           <ul className="d-flex list-unstyled mt-auto">
             <li className="me-auto">
-              <img src="/lorasCrest.png" alt="Loras Crest" width="32" height="32" className="rounded-circle bg-light border border-white" />
+            <Image
+              src="/lorasCrest.png"
+              alt="Loras Crest"
+              width={32}
+              height={32}
+              className="rounded-circle bg-light border border-white"
+            />
             </li>
             <li className="d-flex align-items-center mx-2 mx-md-3">
               <small>{description}</small>

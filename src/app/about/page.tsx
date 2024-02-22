@@ -1,6 +1,7 @@
 import React from 'react';
 import CSTeam from '../components/general/CSTeam';
 import EGRTeam from '../components/general/EGRTeam';
+import Image from 'next/image';
 // Replace with your team member data
 const CSMembers = [
   {
@@ -68,13 +69,13 @@ export default function About() {
             <h2 className="text-center">The Dune Buggy</h2>
             <div className="row">
               <div className="col-md-4 mb-3">
-                <img src="https://via.placeholder.com/400x300" className="img-fluid" alt="Placeholder Image" />
+                <Image src="https://via.placeholder.com/400x300" className="img-fluid" width={400} height={300} alt="Placeholder Image" />
               </div>
               <div className="col-md-4 mb-3">
-                <img src="https://via.placeholder.com/400x300" className="img-fluid" alt="Placeholder Image" />
+              <Image src="https://via.placeholder.com/400x300" className="img-fluid" width={400} height={300} alt="Placeholder Image" />
               </div>
               <div className="col-md-4 mb-3">
-                <img src="https://via.placeholder.com/400x300" className="img-fluid" alt="Placeholder Image" />
+              <Image src="https://via.placeholder.com/400x300" className="img-fluid" width={400} height={300} alt="Placeholder Image" />
               </div>
             </div>
           </div>
@@ -85,7 +86,7 @@ export default function About() {
         <div className="col-lg-10 mx-auto">
           <h2 className="text-center">Data Telemetry System</h2>
             <div className="d-flex justify-content-center">
-            <img src="https://fakeimg.pl/300x200/f9f2fa/150317?text=Arduino&font=bebas" className="mx-3" alt="Placeholder Image" />
+            <Image src="https://fakeimg.pl/300x200/f9f2fa/150317?text=Arduino&font=bebas"  width={300} height={200} className="mx-3" alt="Placeholder Image" />
             </div>
           </div>
         </div>
@@ -94,10 +95,10 @@ export default function About() {
         <div className="col-lg-10 mx-auto">
           <h3 className="text-center">Sensors</h3>
           <div className="d-flex justify-content-center">
-          <img src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" className="mx-3" alt="Placeholder Image" />
-          <img src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" className="mx-3" alt="Placeholder Image" />
-          <img src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" className="mx-3" alt="Placeholder Image" />
-          <img src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" className="mx-3" alt="Placeholder Image" />
+          <Image src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" width={200} height={200} className="mx-3" alt="Placeholder Image" />
+          <Image src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" width={200} height={200}  className="mx-3" alt="Placeholder Image" />
+          <Image src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" width={200} height={200} className="mx-3" alt="Placeholder Image" />
+          <Image src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" width={200} height={200} className="mx-3" alt="Placeholder Image" />
           
           </div>
         </div>
