@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { options } from "../api/auth/[...nextauth]/options"
+import { options } from "@/app/api/auth/[...nextauth]/options"
 import { getServerSession } from "next-auth/next"
-import SignOutButton from "@/app/components/SignOutButton";
+import SignOutButton from "./SignOutButton";
 
 export default async function Navbar() {
   const session = await getServerSession(options);
@@ -28,7 +28,7 @@ export default async function Navbar() {
 
       <span className="navbar-brand mx-3">Loras Baja</span>
 
-        {/* Button for collapsing navbar with bootstrap icon(REQ-TAG)*/}
+      {/* Button for collapsing navbar with bootstrap icon(REQ-TAG)*/}
       <button
         className="navbar-toggler"
         type="button"
@@ -42,11 +42,11 @@ export default async function Navbar() {
       </button>
 
       {/* Div targeted by button above to create collapse effect*/}
-      <div className="collapse navbar-collapse" id="navbarNav">
+      <div className="collapse navbar-collapse justify-content-between" id="navbarNav"> {/* Add justify-content-between className */}
         <ul className="navbar-nav">
           {/* Loop through array of links and add each to navbar*/}
           {links.map((link, index) => ( 
-            <li className='nav-item' key={link.name}>
+            <li className='nav-item py-2' key={link.name}>
                 <Link 
                 href={link.href} 
                 className='mx-3 nav-link'>
@@ -54,10 +54,23 @@ export default async function Navbar() {
                 </Link>
             </li>
           ))}
-        
-        {/* Logout link aligned to the right */}
-        <SignOutButton />
         </ul>
+        
+        {/* Wrap the SignOutButton component with a div having container, row, and justify-content-center classes */}
+        
+        {session && (
+        <div>
+          <div className="px-5 mx-5"></div>
+          <div className="px-2 mx-2 d-flex align-items-center">
+            <div>
+              <ul className="navbar-nav">
+            <SignOutButton />
+            </ul>
+            </div>
+            <img src="/lorasCrest.png" alt="Loras Crest" width="32" height="32" className="rounded-circle bg-light border border-white ml-2" />
+          </div>
+        </div>
+        )}
       </div>
     </nav>
   );

@@ -1,8 +1,14 @@
+'use client'
+import FeaturesLive from "@/app/components/live/FeaturesLive"
+import GaugeBoard from "@/app/components/live/GaugeBoard";
 export default function Live() {
 
     return (
-        <main>
-            <h1>Live Page</h1>
-        </main>
+        <div>
+        <div className="mt-2">
+        <FeaturesLive />
+        <GaugeBoard/>
+        </div>
+        </div>
     )
 }

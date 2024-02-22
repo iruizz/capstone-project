@@ -1,14 +1,96 @@
 .icon-size {
   font-size: 1.5rem;
+  color:white;
 }
+
+.icon-size-md {
+  font-size: 2.5rem;
+}
+
+.icon-size-lg {
+  font-size: 3.5rem;
+}
+
 
 .bi-twitter-x:hover,
 .bi-instagram:hover,
-.bi-facebook:hover {
+.bi-facebook:hover,
+.bi-activity:hover,
+.bi-graph-up:hover,
+.bi-clock-history:hover {
   /* hover styles for icons */
-  color: #660099;
+  color: #8f5ea7;
 }
 
 .text-purple{
-  color: #b953ec
+  color: rgb(173, 108, 216)
 }
+
+.bg-purple{
+  background-color: #daafec
+}
+
+.bg-purple-gradient{
+  background: linear-gradient(180deg, rgba(62,44,94,1) 25%, rgba(119,9,230,1) 89%);
+}
+
+.btn-purple {
+    --bs-btn-font-weight: 500;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: rgb(113, 5, 185); /* Use Bootstrap's purple color */
+    --bs-btn-border-color: rgb(241, 131, 233);; /* Use Bootstrap's purple for border */
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: rgb(70, 2, 102); /* Use Bootstrap's hover shade */
+    --bs-btn-hover-border-color: rgb(11, 0, 10); /* Use Bootstrap's hover shade for border */
+    --bs-btn-active-bg: rgb(100, 5, 163); /* Use Bootstrap's active shade */
+    --bs-btn-active-border-color:  rgb(109, 5, 102); /* Use Bootstrap's active shade for border */
+}
+
+.background-image-container {
+  background-image: url('/purpleGradient.png');
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.nav-link.activee {
+  background: linear-gradient(109.6deg, rgba(119, 44, 232, 0.68) 11.5%, rgb(119, 44, 232) 91.2%); /* Adjust the color codes as needed */
+  color: white; /* Change this to your desired color */
+}
+
+
+.nav-link:hover {
+  color: white;
+}
+
+.card-content {
+  transition: transform 0.3s ease;
+}
+
+.card-content:hover {
+  transform: translateY(-10px);
+}
+
+.card-content-down {
+  transition: transform 0.3s ease;
+}
+
+.card-content-down:hover {
+  transform: translateY(10px);
+}
+
+.link-hover {
+  transition: transform 0.3s ease;
+}
+
+.link-hover:hover {
+  transform: translateY(-5px);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+ }
+
+
+

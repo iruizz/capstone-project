@@ -1,26 +1,17 @@
-"use client";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 
 const SignOutButton = () => {
-  const { data: session } = useSession();
-
-  if (session && session.user) {
+ 
     return (
-      <li className='nav-item'>
+      <li className='nav-item py-2'>
         <Link 
         href="/api/auth/signout?callbackUrl=/"
         className='mx-3 nav-link'>
-          Logout
+        Logout
         </Link>
       </li>
     );
-  }
-  return (
-    <>
-    </>
-  );
 };
 
 export default SignOutButton;
