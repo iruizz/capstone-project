@@ -63,7 +63,7 @@ export default function SideBar() {
                     <strong>User</strong>
                 </a>
                 <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                    <li><Link className="dropdown-item" href="/api/auth/signout?callbackUrl=/">Sign Out</Link></li>
+                    <li><Link className="dropdown-item" href="/api/auth/signout">Sign Out</Link></li>
                     {/* Other dropdown items */}
                 </ul>
             </div>

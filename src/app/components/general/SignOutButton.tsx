@@ -6,7 +6,7 @@ const SignOutButton = () => {
     return (
       <li className='nav-item py-2'>
         <Link 
-        href="/api/auth/signout?callbackUrl=/"
+        href="/api/auth/signout"
         className='mx-3 nav-link'>
         Logout
         </Link>
