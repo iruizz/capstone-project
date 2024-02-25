@@ -5,7 +5,7 @@ type Props = {
   searchParams?: Record<"callbackUrl" | "error", string>;
 };
 
-const SignInPage = (props: Props) => {
+const SignIn = (props: Props) => {
   return (
     <main>
     <div className="container my-5">
@@ -49,4 +49,4 @@ const SignInPage = (props: Props) => {
   );
 };
 
-export default SignInPage;
+export default SignIn;

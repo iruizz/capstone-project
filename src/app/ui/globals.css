@@ -37,7 +37,7 @@
 .btn-purple {
     --bs-btn-font-weight: 500;
     --bs-btn-color: var(--bs-white);
-    --bs-btn-bg: rgb(113, 5, 185); /* Use Bootstrap's purple color */
+    --bs-btn-bg: #7105b9; /* Use Bootstrap's purple color */
     --bs-btn-border-color: rgb(241, 131, 233);; /* Use Bootstrap's purple for border */
     --bs-btn-border-radius: .5rem;
     --bs-btn-hover-color: var(--bs-white);

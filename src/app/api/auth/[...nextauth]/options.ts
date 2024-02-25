@@ -29,14 +29,20 @@ export const options: NextAuthOptions = {
     ],
 
     theme: {
-        colorScheme: "light", // "auto" | "dark" | "light"
-        brandColor: "", // Hex color code
+        colorScheme: "dark", // "auto" | "dark" | "light"
+        brandColor: "#7105b9", // Hex color code
         logo: "https://www.dmdiocese.org/filesimages/Blogs/Discover%20the%20Difference/Loras1%20LC_Logo_StackII_Gold_Purple_Gold_Purple.png", // Absolute URL to image
         buttonText: "" // Hex color code
     },
     pages:{
         signIn: "/signIn",
-    }
-
+        signOut: "/signOut"
+    },
+    jwt: {
+        // The maximum age of the NextAuth.js issued JWT in seconds.
+        // Defaults to `session.maxAge`.
+        maxAge: 60,
+       
+      }
 
 }
