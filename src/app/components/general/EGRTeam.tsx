@@ -36,7 +36,7 @@ const CSTeam = () => {
         <div className="row text-center text-white">
           <div className="col-lg-8 mx-auto">
             <h1 className="text-center">Engineering Team</h1>
-            <p className="lead mb-0">Meet the individuals that created this website.</p>
+            <p className="lead mb-0">Meet the individuals that Engineered the vehicle.</p>
           </div>
         </div>
       </div>

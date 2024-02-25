@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 
 const SignOutButton = () => {
- 
     return (
       <li className='nav-item py-2'>
         <Link 

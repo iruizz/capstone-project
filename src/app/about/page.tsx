@@ -62,71 +62,60 @@ const EngMembers = [
 export default function About() {
   return (
     <main className="mx-5 mb-3">
-   <div className="container-fluid bg-dark bg-gradient text-white py-5">
-      {/* Dune Buggy Section (Placeholder) */}
-        <div className="row mb-3">
-          <div className="col-lg-10 mx-auto">
-            <h2 className="text-center">The Dune Buggy</h2>
-            <div className="row">
-              <div className="col-md-4 mb-3">
-                <Image src="https://via.placeholder.com/400x300" className="img-fluid" width={400} height={300} alt="Placeholder Image" />
-              </div>
-              <div className="col-md-4 mb-3">
-              <Image src="https://via.placeholder.com/400x300" className="img-fluid" width={400} height={300} alt="Placeholder Image" />
-              </div>
-              <div className="col-md-4 mb-3">
-              <Image src="https://via.placeholder.com/400x300" className="img-fluid" width={400} height={300} alt="Placeholder Image" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Data Telemetry Section (Placeholder) */}
-      <div className="row mb-3">
-        <div className="col-lg-10 mx-auto">
-          <h2 className="text-center">Data Telemetry System</h2>
-            <div className="d-flex justify-content-center">
-            <Image src="https://fakeimg.pl/300x200/f9f2fa/150317?text=Arduino&font=bebas"  width={300} height={200} className="mx-3" alt="Placeholder Image" />
-            </div>
-          </div>
-        </div>
-      
-        <div className="row mb-3">
-        <div className="col-lg-10 mx-auto">
-          <h3 className="text-center">Sensors</h3>
-          <div className="d-flex justify-content-center">
-          <Image src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" width={200} height={200} className="mx-3" alt="Placeholder Image" />
-          <Image src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" width={200} height={200}  className="mx-3" alt="Placeholder Image" />
-          <Image src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" width={200} height={200} className="mx-3" alt="Placeholder Image" />
-          <Image src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" width={200} height={200} className="mx-3" alt="Placeholder Image" />
-          
-          </div>
-        </div>
-      </div>
-
-      {/* Computer Science Team Members 
-      <div className="row mb-3">
-        <div className="col-lg-10 mx-auto">
-          <h2 className="text-center">Computer Science Team</h2>
-          <div className="d-flex flex-wrap justify-content-center">
-            {CSMembers.map((member, index) => (
-              <div key={index} className="card m-3" style={{ maxWidth: '300px' }}>
-                <img src={member.image} alt={member.name} className="card-img-top" />
-                <div className="card-body">
-                  <h5 className="card-title">{member.name}</h5>
-                  <p className="card-text">{member.major}</p>
-                  <p className="card-text text-muted">Graduation Year: {member.graduationYear}</p>
+      <div className="container-fluid bg-dark bg-gradient text-white py-5">
+        {/* Dune Buggy Section */}
+        <div className="container">
+          <div className="row mb-3">
+            <div className="col-lg-10 mx-auto">
+              <h2 className="text-center">The Dune Buggy</h2>
+              <div className="row">
+                <div className="col-md-4 mb-3">
+                  <Image src="https://via.placeholder.com/400x300" width={400} height={300} className="img-fluid mx-auto d-block" alt="Placeholder Image" />
+                </div>
+                <div className="col-md-4 mb-3">
+                  <Image src="https://via.placeholder.com/400x300" width={400} height={300} className="img-fluid mx-auto d-block" alt="Placeholder Image" />
+                </div>
+                <div className="col-md-4 mb-3">
+                  <Image src="https://via.placeholder.com/400x300" width={400} height={300} className="img-fluid mx-auto d-block" alt="Placeholder Image" />
                 </div>
               </div>
-            ))}
+            </div>
           </div>
+
+          {/* Arduino Sensor Section */}
+          <div className="row mb-3">
+            <div className="col-lg-10 mx-auto">
+              <h2 className="text-center">Data Telemetry System</h2>
+              <div className="row">
+                <div className="col-md-6 mx-auto mb-3">
+                  <Image src="https://fakeimg.pl/300x200/f9f2fa/150317?text=Arduino&font=bebas" width={300} height={200} className="img-fluid mx-auto d-block" alt="Placeholder Image" />
+                </div>
+              </div>
+              <h3 className="text-center">Sensors</h3>
+              <div className="row">
+                <div className="col-md-3 mb-3">
+                  <Image src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" width={200} height={200} className="img-fluid mx-auto d-block" alt="Placeholder Image" />
+                </div>
+                <div className="col-md-3 mb-3">
+                  <Image src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" width={200} height={200} className="img-fluid mx-auto d-block" alt="Placeholder Image" />
+                </div>
+                <div className="col-md-3 mb-3">
+                  <Image src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" width={200} height={200} className="img-fluid mx-auto d-block" alt="Placeholder Image" />
+                </div>
+                <div className="col-md-3 mb-3">
+                  <Image src="https://fakeimg.pl/200x200/f9f2fa/150317?text=Sensor&font=bebas" width={200} height={200} className="img-fluid mx-auto d-block" alt="Placeholder Image" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Computer Science Team Members */}
+          <CSTeam/>
+          
+          {/* Engineering Team Members */}
+          <EGRTeam/>
         </div>
       </div>
-      */}
-      <CSTeam/>
-      {/* Engineering Team Members */}
-      <EGRTeam/>
-    </div>
     </main>
   );
 }
