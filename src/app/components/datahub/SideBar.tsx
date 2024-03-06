@@ -37,7 +37,7 @@ export default function SideBar() {
                 <li className="nav-item border-bottom border-top ">
                     <Link href="/datahub" className={`nav-link text-purple fs-5 my-2 link-hover ${selectedLink === 'home' ? 'activee' : ''}`} onClick={() => setSelectedLink('home')}>
                         <div className="d-flex align-items-center">
-                        <i className="bi bi-graph-up icon-size mx-3"></i>
+                        <i className="bi bi-house icon-size mx-3"></i>
                             <p className="ml-2 mb-0">Home</p>
                         </div>
                     </Link>
