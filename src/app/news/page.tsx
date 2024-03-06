@@ -1,10 +1,9 @@
 import Image from 'next/image';
 export default function News() {
     return (
-<main>
-<section className="text-light bg-dark bg-gradient mx-5">
+<main className="text-light bg-dark bg-gradient mx-5 mb-3">
   <h1 className="text-center">News & Events</h1>
-  <div className="container px-4 py-5" >
+  <div className="container px-4 pt-4" >
     <h2 className="pb-2 border-bottom text-center">Recent Events</h2>
     <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
       <div className="col">
@@ -154,7 +153,6 @@ export default function News() {
       </div>
     </div>
   </div>
-  </section>
   </main>
     );
 }
