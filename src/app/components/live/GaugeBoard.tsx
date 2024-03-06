@@ -94,12 +94,12 @@ export default function GaugeBoard() {
     let intervalId: NodeJS.Timeout | null = null;
     if (showAllGauges) {
       intervalId = setInterval(() => {
-        {/* FOR TESTING WITHOUT PUSHER 
+        {/* FOR TESTING WITHOUT PUSHER */}
         setSpeedValue((prevValue) => (prevValue < 70 ? prevValue + 5 : 0));
         setTempValue((prevValue) => (prevValue < 100 ? prevValue + 2 : 0));
         setFuelValue((prevValue) => (prevValue > 0 ? prevValue - 2 : 100));
         setAccelValue((prevValue) => (prevValue < 10 ? prevValue + 1 : -2));
-        */}
+        
         
         const randomValue = Math.round(Math.random() * 300);
   
