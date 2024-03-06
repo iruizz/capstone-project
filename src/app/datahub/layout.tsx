@@ -7,10 +7,10 @@ export default function DatahubLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="background-image-container container-fluid justify-content-center">
-      <div className="row">
-        <div className="col-12 col-md-3 my-2">
-          <div className="sticky-top" style={{top:"3rem", height:"90vh"}}>
+    <main className="background-image-container container-fluid justify-content-center">
+      <div className="row mt-5 pt-5">
+        <div className="col-12 col-md-3 mb-2">
+          <div className="sticky-top" style={{top:"5rem"}}>
           <SideBar />
           </div>
         </div>
@@ -18,6 +18,6 @@ export default function DatahubLayout({
           {children}
         </div>
       </div>
-    </div>
+    </main>
   );
 }

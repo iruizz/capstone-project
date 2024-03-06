@@ -4,8 +4,8 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-      <main role="main" className="mx-5 mb-3 pb-3 bg-dark bg-gradient">
-      <div className="justify-content-center">
+    <main role="main" className="mx-5 mb-3 pb-3 bg-dark bg-gradient">
+      <div className="justify-content-center" style={{ paddingTop: "7rem" }}>
         <Carousel />
       </div>
       <div className="container marketing text-light">
@@ -21,35 +21,67 @@ export default function Home() {
             By engaging in these competitions, engineering students are pushing the boundaries of their skills and gaining invaluable hands-on experience that will shape their future careers.</p>
           </div>
           <div className="col-md-5">
-          <Image className="featurette-image img-fluid mx-auto card-content" alt="400x400" width={400} height={400} src="https://fakeimg.pl/400x400/f9f2fa/150317?text=Image&font=bebas"/>
+            <Image className="featurette-image img-fluid mx-auto card-content" alt="400x400" width={400} height={400} src="https://fakeimg.pl/400x400/f9f2fa/150317?text=Image&font=bebas"/>
+          </div>
+        </div>
+      
+        <hr className="featurette-divider"></hr>
+
+        <div className="row featurette">
+          <div className="col-md-12 order-md-2">
+            <Image
+              src="/building.jpg" 
+              width={500}
+              height={300}
+              alt="Dune Buggy"
+              className="img-fluid mx-auto d-block card-content"
+              layout="responsive"
+            />
+          </div>
+        </div>
+    
+        <hr className="featurette-divider"></hr>
+
+        {/* About Section */}
+        <div className="row featurette">
+          <div className="col-md-7 order-md-2">
+            <h2 className="featurette-heading">About our team <span className="text-secondary"></span></h2>
+            <p className="lead">We are a passionate and dedicated team of individuals committed to excellence in engineering and motorsports. With a shared love for innovation and teamwork, we strive to push the boundaries of technology and performance in off-road racing.</p>
+            <p className="lead">Click below to learn more about our team!</p>
+            <br />
+            <a href="about" className="btn btn-primary mb-3">Our Team</a>
+          </div>
+          <div className="col-md-5 order-md-1">
+            <Image className="featurette-image img-fluid mx-auto card-content" alt="400x400" width={400} height={400} src="https://fakeimg.pl/400x400/f9f2fa/150317?text=Image&font=bebas"/>
           </div>
         </div>
 
-    <hr className="featurette-divider"></hr>
+        <hr className="featurette-divider"></hr>
 
-    <div className="row featurette">
-    <div className="col-md-12 order-md-2">
-    <Image
-      src="/building.jpg" 
-      width={500}
-      height={300}
-      alt="Dune Buggy"
-      className="img-fluid mx-auto d-block card-content"
-      layout="responsive"
-    />
-    </div>
-    </div>
-    
-    <hr className="featurette-divider"></hr>
+        {/* News and Events Section */}
+        <div className="row featurette">
+          <div className="col-md-7 order-md-1">
+            <h2 className="featurette-heading">News & Events <span className="text-secondary">Upcoming/Past</span></h2>
+            <p className="lead">Stay up-to-date with upcoming events that our engineering team will be attending and racing in. Don&apos;t worry if you miss out on an event, we will keep you updated with recent news on how our team did.</p>
+            <p className="lead">Click below to explore what our team has been up to!</p>
+            <br />
+            <a href="news" className="btn btn-primary mb-3">News & Events</a>
+          </div>
+          <div className="col-md-5 order-md-2">
+            <Image className="featurette-image img-fluid mx-auto card-content" alt="400x400" width={400} height={400} src="https://fakeimg.pl/400x400/f9f2fa/150317?text=Image&font=bebas"/>
+          </div>
+        </div>
 
-        {/* Dune Buggy and Data Telemetry System Section */}
+        <hr className="featurette-divider"></hr>
+
+        {/* Sponsors Section */}
         <div className="row featurette">
           <div className="col-md-7 order-md-2">
-            <h2 className="featurette-heading">Dune Buggy and Data Telemetry System<span className="text-secondary"> Built by Loras Baja Team</span></h2>
-            <p className="lead">Our cutting-edge dune buggy, engineered by the brilliant minds of Loras Computer Science Students, comes equipped with a state-of-the-art data telemetry system. Developed in collaboration with computer science and engineering students, this system provides real-time insights into vehicle performance, ensuring optimal racing conditions.</p>
-            <p className="lead">Access the Data Telemetry System now to unlock the power of data-driven racing.</p>
-            <p><small>*Note authentication is required</small></p>
-            <a href="your-data-telemetry-page-url" className="btn btn-primary">Access Data Hub</a>
+            <h2 className="featurette-heading">Our Sponsors <span className="text-secondary">Supporting Our Journey</span></h2>
+            <p className="lead">We extend our heartfelt gratitude to our sponsors who make our dreams a reality. Their unwavering support fuels our passion for excellence and propels us toward victory.</p>
+            <p className="lead">Join us in celebrating the invaluable contributions of our sponsors.</p>
+            <br />
+            <a href="sponsors" className="btn btn-primary mb-3">Our Sponsors</a>
           </div>
           <div className="col-md-5 order-md-1">
           <Image className="featurette-image img-fluid mx-auto card-content" alt="400x400" width={400} height={400} src="https://fakeimg.pl/400x400/f9f2fa/150317?text=Image&font=bebas"/>
@@ -58,14 +90,16 @@ export default function Home() {
 
         <hr className="featurette-divider"></hr>
 
-        {/* Sponsors Section */}
+        {/* Dune Buggy and Data Telemetry System Section */}
         <div className="row featurette">
-          <div className="col-md-7">
-            <h2 className="featurette-heading">Our Sponsors <span className="text-secondary">Supporting Our Journey</span></h2>
-            <p className="lead">We extend our heartfelt gratitude to our sponsors who make our dreams a reality. Their unwavering support fuels our passion for excellence and propels us toward victory.</p>
-            <p className="lead">Join us in celebrating the invaluable contributions of our sponsors.</p>
+          <div className="col-md-7 order-md-1">
+            <h2 className="featurette-heading">Dune Buggy and Data Telemetry System <span className="text-secondary">Built by Loras Baja Team</span></h2>
+            <p className="lead">Our cutting-edge dune buggy, engineered by the brilliant minds of Loras Computer Science Students, comes equipped with a state-of-the-art data telemetry system. Developed in collaboration with computer science and engineering students, this system provides real-time insights into vehicle performance, ensuring optimal racing conditions.</p>
+            <p className="lead">Access the Data Telemetry System now to unlock the power of data-driven racing.</p>
+            <p><small>*Note authentication is required</small></p>
+            <a href="datahub" className="btn btn-primary mb-3">Access Data Hub</a>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-5 order-md-2">
           <Image className="featurette-image img-fluid mx-auto card-content" alt="400x400" width={400} height={400} src="https://fakeimg.pl/400x400/f9f2fa/150317?text=Image&font=bebas"/>
           </div>
         </div>

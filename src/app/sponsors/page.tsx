@@ -3,7 +3,7 @@ import Client from '@/app/components/pusher/Client';
 
 export default function Sponsors() {
   return (
-    <div className="text-light text-center" style={{height: "800px"}}>
+    <div className="text-light text-center" style={{height: "800px", paddingTop: "7rem"}}>
       <h1>Sponsors Page</h1>
       <p className="fs-2 my-5">
         The Sponsor page will display the name, logo, and contact information for each sponsor.

@@ -1,10 +1,31 @@
 'use client'
-import React, { useState } from 'react';
+import { usePathname } from 'next/navigation'
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function SideBar() {
     const [selectedLink, setSelectedLink] = useState<string | null>(null);
+    const currentPathname = usePathname();
+    useEffect(() => {
+        // Get the current pathname from the router
+        // Set the selected link based on the current pathname
+        setSelectedLink(getSelectedLink(currentPathname));
+    }, [currentPathname]); // Re-run effect when the route changes
+
+    // Function to determine the selected link based on the pathname
+    const getSelectedLink = (pathname: string): string | null => {
+        if (pathname.startsWith('/datahub/live')) {
+            return 'live';
+        } else if (pathname.startsWith('/datahub/historic')) {
+            return 'historic';
+        } 
+        else if (pathname.startsWith('/datahub/demo')) {
+            return 'demo';
+        }else {
+            return 'home'; // Default to 'home' if no specific match
+        }
+    };
 
     return (
         <div className="h-100 d-flex border border-secondary flex-column flex-shrink-0 p-3 text-white fw-semibold bg-black bg-gradient rounded-4 position-sticky">
@@ -36,9 +57,9 @@ export default function SideBar() {
                     </Link>
                 </li>
                 <li className="nav-item border-bottom">
-                    <Link href="/datahub" className={`nav-link text-purple fs-5 my-2 link-hover ${selectedLink === 'gps' ? 'activee' : ''} `} onClick={() => setSelectedLink('gps')}>
+                    <Link href="/datahub/demo" className={`nav-link text-purple fs-5 my-2 link-hover ${selectedLink === 'demo' ? 'activee' : ''} `} onClick={() => setSelectedLink('gps')}>
                     <i className="bi bi-geo-fill icon-size mx-3"></i>
-                        Other Tools
+                        Live Demo
                     </Link>
                 </li>
                 <li className="nav-item border-bottom">
@@ -58,7 +79,7 @@ export default function SideBar() {
         </div>
         <hr/>
             <div className="dropdown">
-                <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle pb-2" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                     <Image src="/lorasCrest.png" alt="" width={32} height={32}  className="rounded-circle me-2"/>
                     <strong>User</strong>
                 </a>

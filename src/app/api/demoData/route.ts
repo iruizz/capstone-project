@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     throw new Error('Invalid or empty request body or incorrect key');
   } else {
     // Trigger Pusher event with the received data
-    pusherServer.trigger('live-data', 'new-data', data);
+    pusherServer.trigger('demo-data', 'new-data', data);
   }
     // Return a successful response
     return new Response('Request processed successfully', { status: 200 });

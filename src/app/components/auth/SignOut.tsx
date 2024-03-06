@@ -15,7 +15,7 @@ const Signout = () => {
   };
 
   return (
-    <div className="container w-50 my-5">
+    <div className="container w-50 my-5" style={{ marginTop: "7.5rem" }}>
       <div className="row text-light my-5 gap-4">
         <form
           onSubmit={handleLogout} // Remove handleSubmit as it's not needed

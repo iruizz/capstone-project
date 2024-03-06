@@ -1,28 +1,23 @@
 
 // BIG REMINDER:
 // For this to work i had to:
-// Rremove comments from layout file as it was causing JSX DOM errors 
-//JSX comments can sometimes lead to unexpected behavior, especially when dealing with
-// server-side rendering (SSR) or static site generation (SSG) in frameworks like Next.js.
 // Also had to change the import to use dynamic in the page.tsx file this is imported into
 
 import ReactECharts from 'echarts-for-react';
 import {useState, useEffect} from 'react';
 interface TempGaugeProps {
     value?: number;
-    width?: string;
-    height?: string;
+    title?: string;
 }
 
-const TempGauge: React.FC<TempGaugeProps>= ({value = 0 }) => {
+const TempGauge: React.FC<TempGaugeProps>= ({value = 0, title = 'Temp' }) => {
     const [option, setOption] = useState({})
  
     useEffect(() => {
         if (value !== undefined && value !== null) {
-            
             const option = {
                 title: {
-                    text: 'CVT Belt Temp.',
+                    text: title,
                     left: 'center', // Center the title horizontally
                     top: 10,     // Adjust the top position if needed
                     textStyle: {
@@ -36,9 +31,10 @@ const TempGauge: React.FC<TempGaugeProps>= ({value = 0 }) => {
                     center: ['50%', '70%'],
                     startAngle: 200,
                     endAngle: -20,
+                    radius: '70%',
                     min: 0,
-                    max: 60,
-                    splitNumber: 6,
+                    max: 100,
+                    splitNumber: 10,
                     itemStyle: {
                       color: '#b00fd4',
                       shadowColor: 'rgba(99,00,255,0.45)',
@@ -77,9 +73,9 @@ const TempGauge: React.FC<TempGaugeProps>= ({value = 0 }) => {
                       }
                     },
                     axisLabel: {
-                      distance: -12,
+                      distance: -15,
                       color: '#b800cf',
-                      fontSize: 15,
+                      fontSize: 13,
                     },
                     anchor: {
                       show: false
@@ -95,7 +91,7 @@ const TempGauge: React.FC<TempGaugeProps>= ({value = 0 }) => {
                       offsetCenter: [0, '-15%'],
                       fontSize: 30,
                       fontWeight: 'bolder',
-                      formatter: '{value} °C',
+                      formatter: `${value.toFixed(1)} °C`,
                       color: 'inherit'
                     },
                     data: [
@@ -111,7 +107,8 @@ const TempGauge: React.FC<TempGaugeProps>= ({value = 0 }) => {
                     startAngle: 200,
                     endAngle: -20,
                     min: 0,
-                    max: 60,
+                    max: 100,
+                    radius: '70%',
                     itemStyle: {
                       color: '#68109c',
                       shadowColor: 'rgba(99,00,255,0.45)',
@@ -121,9 +118,8 @@ const TempGauge: React.FC<TempGaugeProps>= ({value = 0 }) => {
                     },
                     progress: {
                       show: true,
-                      width: 8
+                      width: 5
                     },
-              
                     pointer: {
                       show: false
                     },

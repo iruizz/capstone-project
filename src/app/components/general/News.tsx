@@ -1,4 +1,4 @@
-import Card from './Card'
+import Card from './NewsCard'
 export default function NewsSection() {
   return (
     <section>

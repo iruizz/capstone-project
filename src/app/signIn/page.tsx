@@ -10,7 +10,7 @@ const SignIn = (props: Props) => {
     <main>
     <div className="container my-5">
       <div className="row justify-content-center text-center ">
-        <p className="lead w-80 lh-lg text-light fs-4 fw">Under the hood, a sophisticated Data Telemetry System captures Live and Historical data
+        <p className="lead w-80 lh-lg text-light fs-4 fw" style={{ paddingTop: "4rem" }}>Under the hood, a sophisticated Data Telemetry System captures Live and Historical data
          from the Dune Buggy, providing valuable insights into its performance and operation. 
          While this system is currently only accessible to select individuals and team members, 
          its insights are crucial for optimizing the vehicle and pushing the boundaries of performance. 

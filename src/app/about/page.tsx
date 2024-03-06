@@ -62,12 +62,12 @@ const EngMembers = [
 export default function About() {
   return (
     <main className="mx-5 mb-3">
-      <div className="container-fluid bg-dark bg-gradient text-white py-5">
+      <div className="container-fluid bg-dark bg-gradient text-white py-5 ">
         {/* Dune Buggy Section */}
         <div className="container">
           <div className="row mb-3">
             <div className="col-lg-10 mx-auto">
-              <h2 className="text-center">The Dune Buggy</h2>
+              <h2 className="text-center" style={{ paddingTop: "2rem" }}>The Dune Buggy</h2>
               <div className="row">
                 <div className="col-md-4 mb-3">
                   <Image src="https://via.placeholder.com/400x300" width={400} height={300} className="img-fluid mx-auto d-block" alt="Placeholder Image" />

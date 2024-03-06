@@ -1,14 +1,16 @@
 import React from 'react';
 
-interface ValueCardProps {
+interface IndicatorCardProps {
   title: string;
   category: string;
   iconName: string;
   footer:string;
   bgColor:string;
+  iconColor:string;
+  onClick?: () => void;
 }
 
-const ValueCard: React.FC<ValueCardProps> = ({ title, category, iconName, footer, bgColor}) => {
+const IndicatorCard : React.FC<IndicatorCardProps> = ({ title, category, iconName, iconColor, footer, bgColor, onClick}) => {
   return (
     <div className="col-md-6 col-lg-3 my-4">
       <div className={`card text-white ${bgColor} border-2 border-light rounded-4 `}>
@@ -17,7 +19,7 @@ const ValueCard: React.FC<ValueCardProps> = ({ title, category, iconName, footer
             <div className="row shadow-lg">
               <div className="col-5">
                 <div className="info-icon text-center icon-primary">
-                  <i className={`bi bi-${iconName} icon-size-lg text-black`}></i>
+                  <i className={`bi bi-${iconName} icon-size-lg text-${iconColor}`} onClick={onClick}></i>
                 </div>
               </div>
               <div className="col-7">
@@ -41,4 +43,4 @@ const ValueCard: React.FC<ValueCardProps> = ({ title, category, iconName, footer
   );
 }
 
-export default ValueCard;
+export default IndicatorCard;

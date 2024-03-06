@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
 import mapStyles from './../mapData/mapStyles.json';
-import coordinates from './../mapData/coordinates.json';
 
 // Initial position of the map
 const position: google.maps.LatLngLiteral = {
@@ -28,8 +27,7 @@ const circleOptions: google.maps.CircleOptions = {
   fillColor: '#FFD700', // Gold color
   fillOpacity: 0.2,
   strokeColor: '#FFD700', // Gold color
-  radius: 10, // in meters
-  center: coordinates[0], // Initialize center with first coordinate
+  radius: 10, // in meters// Initialize center with first coordinate
 };
 
 // Creates a control that recenters the map on Chicago
@@ -62,13 +60,22 @@ function createCenterControl(map: google.maps.Map) {
   return controlButton;
 }
 
-const Map = () => {
+const svgMarker = {
+  path: "M-1.547 12l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM0 0q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+  fillColor: "blue",
+  fillOpacity: 0.6,
+  strokeWeight: 0,
+  rotation: 0,
+  scale: 2,
+  anchor: new google.maps.Point(0, 20),
+};
+
+
+const Map = ({ coordinate }: { coordinate: google.maps.LatLngLiteral }) => {
   const mapRef = useRef<HTMLDivElement>(null);
-  const pathRef = useRef<google.maps.Polyline | null>(null);
   const circleRef = useRef<google.maps.Circle | null>(null);
-  const [route, setRoute] = useState<google.maps.LatLngLiteral[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMoving, setIsMoving] = useState(false);
+  const [markers, setMarkers] = useState<google.maps.Marker[]>([]);
+
 
   // Initialize the map and draw the polyline and circle
   useEffect(() => {
@@ -103,18 +110,29 @@ const Map = () => {
       // Push the control to the top center position of the map
       map.controls[google.maps.ControlPosition.TOP_RIGHT].push(centerControlDiv);
 
-      // Draw the polyline and circle
-      pathRef.current = new google.maps.Polyline({
-        path: route,
-        geodesic: true,
-        strokeColor: '#7700FF',
-        strokeOpacity: 1.0,
-        strokeWeight: 4,
-      });
-      pathRef.current.setMap(map);
-
       circleRef.current = new google.maps.Circle(circleOptions);
       circleRef.current.setMap(map);
+
+      map.addListener('click', (event: google.maps.MapMouseEvent) => {
+        const clickedPosition = event.latLng ? event.latLng.toJSON() : null;
+        if (clickedPosition) {
+          const marker = new google.maps.Marker({
+            position: clickedPosition,
+            icon: svgMarker,
+            map: map,
+          });
+  
+          // Add click event listener to the marker
+          marker.addListener('click', () => {
+            marker.setMap(null); // Remove the clicked marker from the map
+            setMarkers((prevMarkers) => prevMarkers.filter((m) => m !== marker)); // Remove the clicked marker from the markers state
+          });
+  
+          // Add the marker to the markers array
+          setMarkers((prevMarkers) => [...prevMarkers, marker]);
+        }
+      });
+
     };
 
     // Call the initMap function
@@ -123,51 +141,16 @@ const Map = () => {
 
   // Update the circle position based on currentIndex and isMoving state
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (isMoving) {
-        let newRoute;
-        if (route.length < 50) {
-          newRoute = [...route, coordinates[currentIndex]];
-        } else {
-          newRoute = [...route.slice(-49), coordinates[currentIndex]];
-        }
 
-        setRoute(newRoute);
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % coordinates.length);
-        if (circleRef.current) {
-          circleRef.current.setCenter(coordinates[currentIndex]);
-        }
-        if (pathRef.current) {
-          pathRef.current.setPath(route);
-        }
-      }
-    }, 100);
-
-    return () => clearInterval(intervalId);
-  }, [currentIndex, isMoving]);
+    if (circleRef.current) {
+      circleRef.current.setCenter(coordinate);
+    }
+       
+  }, [coordinate]);
 
   return (
     <div className="h-100 w-100">
       <div ref={mapRef} className="h-100 w-100 map-container border border-secondary rounded-4"/>
-      <div className="row justify-content-center mt-3">
-        <div className="text-center ">
-          <button
-            onClick={() => {
-              setCurrentIndex(0);
-              setRoute([]);
-            }}
-            className="btn bg-black bg-gradient text-light mx-2"
-          >
-            Reset
-          </button>
-          <button
-            onClick={() => setIsMoving(!isMoving)}
-            className="btn bg-black bg-gradient text-light mx-2"
-          >
-            {isMoving ? 'Stop' : 'Start'}
-          </button>
-        </div>
-      </div>
     </div>
   );
 };

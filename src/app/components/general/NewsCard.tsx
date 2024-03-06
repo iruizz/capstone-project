@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-interface CardProps {
+interface NewsCardProps {
   title: string;
   imageUrl: string;
   description: string;
@@ -10,7 +10,7 @@ interface CardProps {
 }
 
 
-const Card: React.FC<CardProps> = ({ title, imageUrl, description, date }) => {
+const NewsCard: React.FC<NewsCardProps> = ({ title, imageUrl, description, date }) => {
   return (
     <div className="col">
       <Link className="text-decoration-none" href="/news">
@@ -42,4 +42,4 @@ const Card: React.FC<CardProps> = ({ title, imageUrl, description, date }) => {
   );
 };
 
-export default Card;
+export default NewsCard;
