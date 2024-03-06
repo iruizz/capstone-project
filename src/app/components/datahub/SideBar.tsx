@@ -53,13 +53,13 @@ export default function SideBar() {
                 <li className="nav-item border-bottom">
                     <Link href="/datahub/historic" className={`nav-link text-purple fs-5 my-2 link-hover ${selectedLink === 'historic' ? 'activee' : ''} `} onClick={() => setSelectedLink('historic')}>
                     <i className="bi bi-clock-history icon-size mx-3"></i>
-                        Historical Data
+                    Historical Data
                     </Link>
                 </li>
                 <li className="nav-item border-bottom">
-                    <Link href="/datahub/demo" className={`nav-link text-purple fs-5 my-2 link-hover ${selectedLink === 'demo' ? 'activee' : ''} `} onClick={() => setSelectedLink('gps')}>
+                    <Link href="/datahub/demo" className={`nav-link text-purple fs-5 my-2 link-hover ${selectedLink === 'demo' ? 'activee' : ''} `} onClick={() => setSelectedLink('demo')}>
                     <i className="bi bi-geo-fill icon-size mx-3"></i>
-                        Live Demo
+                    Live Demo
                     </Link>
                 </li>
                 <li className="nav-item border-bottom">
