@@ -17,12 +17,19 @@ interface MapProps {
   lng: number;
 }
 
+interface TempProps{
+  temp: number;
+  ambientTemp: number;
+}
+
 const startCoord: MapProps = { lat: 42.5029, lng: -90.6811 };
 
+const initialTemp: TempProps = { temp: 0, ambientTemp: 0 };
+
 export default function GaugeBoard() {
-  const [temp1Value, setTemp1Value] = useState(0);
-  const [temp2Value, setTemp2Value] = useState(0);
-  const [temp3Value, setTemp3Value] = useState(0);
+  const [temp1Value, setTemp1Value] = useState<TempProps>(initialTemp);
+  const [temp2Value, setTemp2Value] =  useState<TempProps>(initialTemp);
+  const [temp3Value, setTemp3Value] =  useState<TempProps>(initialTemp);
   const [flowRate, setFlowRate] = useState(0);
   const [coordinate, setCoordinate] = useState<MapProps>(startCoord);
  
@@ -56,31 +63,37 @@ export default function GaugeBoard() {
 
   return (
     <section>
-      <div className="container-fluid px-4 pb-4 my-2 bg-black bg-gradient rounded-4 text-light border border-secondary">
-            <div className="row justify-content-center mt-4">
-              <div className="col-md-4 text-center border border-secondary rounded-4 mx-2 mb-5" style={{ maxWidth: '23vw', minWidth: '17em', minHeight: '17em', width:'22vw', height: '15em' }}>
-                <DynamicTempGauge value={temp1Value} title={'CVT Belt Temp.'}/>
-                <span>Raw Value: {temp1Value}</span>
-              </div>
-              <div className="col-md-4 text-center border border-secondary rounded-4 mx-2 mb-5" style={{ maxWidth: '23vw', minWidth: '17em', minHeight: '17em', width:'22vw', height: '15em' }}>
-              <DynamicTempGauge value={temp2Value} title={'Brake Temp.'}/>
-              <span>Raw Value: {temp2Value}</span>
-              </div>
-              <div className="col-md-4 text-center border border-secondary rounded-4 mx-2 mb-5" style={{ maxWidth: '23vw', minWidth: '17em', minHeight: '17em', width:'22vw', height: '15em' }}>
-              <DynamicTempGauge value={temp3Value} title={'Brake Temp.'} />
-              <span>Raw Value: {temp3Value}</span>
-              </div>
-              <div className="col-md-4 text-center mx-2 mb-4" style={{ maxWidth: '41.5vw', minWidth: '25em', minHeight: '20em', width:'35.5vw', height: '25em' }}>
-              <DynamicMap coordinate={coordinate}/>
-              <p className="mb-0">Raw Coordinates</p>
-              <span>lat: {coordinate.lat} lng: {coordinate.lng}</span>
-              </div>
-              <div className="col-md-4 text-center mx-2 mb-4 border border-secondary rounded-4" style={{ maxWidth: '41.5vw', minWidth: '25em', minHeight: '20em', width:'32vw', height: '25em' }}>
-                <DynamicFlow value={flowRate}/>
-                <span>Raw Value: {flowRate}</span>
-              </div>
+    <div className="container-fluid px-4 pb-4 my-2 bg-black bg-gradient rounded-4 text-light border border-secondary">
+          <div className="row justify-content-center mt-4">
+            <div className="col-md-4 border border-secondary rounded-4 mx-2 my-5" style={{ maxWidth: '23vw', minWidth: '17em', minHeight: '17em', width:'22vw', height: '20em' }}>
+              <DynamicTempGauge value={temp1Value.temp} title={'CVT Belt Temp.'}/>
+              <p className="mb-0">Raw Values</p>
+              <p  className="mb-0">Temp: {temp1Value.temp}</p>
+              <p>Ambient Temp: {temp1Value.ambientTemp}</p>
             </div>
-      </div>
-    </section>
+            <div className="col-md-4 border border-secondary rounded-4 mx-2 my-5" style={{ maxWidth: '23vw', minWidth: '17em', minHeight: '17em', width:'22vw', height: '20em' }}>
+            <DynamicTempGauge value={temp2Value.temp} title={'Brake Temp.'}/>
+            <p className="mb-0">Raw Values</p>
+              <p className="mb-0">Temp: {temp2Value.temp}</p>
+              <p>Ambient Temp: {temp2Value.ambientTemp}</p>
+            </div>
+            <div className="col-md-4 border border-secondary rounded-4 mx-2 my-5" style={{ maxWidth: '23vw', minWidth: '17em', minHeight: '17em', width:'22vw', height: '20em' }}>
+            <DynamicTempGauge value={temp3Value.temp} title={'Brake Temp.'} />
+            <p className="mb-0">Raw Values</p>
+              <p className="mb-0">Temp: {temp3Value.temp}</p>
+              <p>Ambient Temp: {temp3Value.ambientTemp}</p>
+            </div>
+            <div className="col-md-4 mx-2 my-5" style={{ maxWidth: '41.5vw', minWidth: '25em', minHeight: '20em', width:'35.5vw', height: '25em' }}>
+            <DynamicMap coordinate={coordinate}/>
+            <p className="mb-0">Raw Coordinates</p>
+            <span>lat: {coordinate.lat} lng: {coordinate.lng}</span>
+            </div>
+            <div className="col-md-4 mx-2 my-5 border border-secondary rounded-4" style={{ maxWidth: '41.5vw', minWidth: '25em', minHeight: '20em', width:'32vw', height: '25em' }}>
+              <DynamicFlow value={flowRate}/>
+              <span>Raw Value: {flowRate}</span>
+            </div>
+          </div>
+    </div>
+  </section>
   );
 }
