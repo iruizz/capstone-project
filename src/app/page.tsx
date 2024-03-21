@@ -16,7 +16,7 @@ export default function Home() {
           <div className="col-md-7">
             <h2 className="featurette-heading">Welcome to <span className="text-secondary">Loras Baja</span></h2>
             <p className="lead">Welcome to Loras Baja, where innovation meets excellence. Join us on an exciting journey through the world of off-road racing.</p>
-            <p className="lead mt-4">Loras College Engineering Students are making history by participating in competitions for the first time in the school%apos;s history. 
+            <p className="lead mt-4">Loras College Engineering Students are making history by participating in competitions for the first time in the school&apos;s history. 
             This initiative is not only fostering a spirit of innovation and competitiveness but also encouraging students to apply their theoretical knowledge in practical settings. 
             By engaging in these competitions, engineering students are pushing the boundaries of their skills and gaining invaluable hands-on experience that will shape their future careers.</p>
           </div>
