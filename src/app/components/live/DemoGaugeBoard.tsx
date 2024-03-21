@@ -32,6 +32,7 @@ export default function GaugeBoard() {
   const [temp3Value, setTemp3Value] =  useState<TempProps>(initialTemp);
   const [flowRate, setFlowRate] = useState(0);
   const [coordinate, setCoordinate] = useState<MapProps>(startCoord);
+  const [value, setValue] = useState(0);
  
   // Handles incoming live data and updates state for each gauge using pusherClient
   useEffect(() => {
@@ -51,6 +52,9 @@ export default function GaugeBoard() {
       }
       if ('coordinate' in data) {
         setCoordinate(data.coordinate);
+      }
+      if('value' in data){
+        setValue(data.value); 
       }
       // can add more conditions to handle additional values
     });
@@ -89,8 +93,8 @@ export default function GaugeBoard() {
             <span>lat: {coordinate.lat} lng: {coordinate.lng}</span>
             </div>
             <div className="col-md-4 mx-2 my-5 border border-secondary rounded-4" style={{ maxWidth: '41.5vw', minWidth: '25em', minHeight: '20em', width:'32vw', height: '25em' }}>
-              <DynamicFlow value={flowRate}/>
-              <span>Raw Value: {flowRate}</span>
+              <DynamicFlow value={value}/>
+              <span>Raw Value: {value}</span>
             </div>
           </div>
     </div>
