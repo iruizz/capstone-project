@@ -35,20 +35,21 @@
 }
 
 .btn-purple {
-    --bs-btn-font-weight: 500;
+    --bs-btn-font-weight: 600;
     --bs-btn-color: var(--bs-white);
     --bs-btn-bg: #7105b9; /* Use Bootstrap's purple color */
-    --bs-btn-border-color: rgb(241, 131, 233);; /* Use Bootstrap's purple for border */
+    --bs-btn-border-color: #CEB787; /* Use Bootstrap's purple for border */
+    --bs-btn-border-width: .1rem;
     --bs-btn-border-radius: .5rem;
     --bs-btn-hover-color: var(--bs-white);
-    --bs-btn-hover-bg: rgb(70, 2, 102); /* Use Bootstrap's hover shade */
-    --bs-btn-hover-border-color: rgb(11, 0, 10); /* Use Bootstrap's hover shade for border */
+    --bs-btn-hover-bg: #5b0396; /* Use Bootstrap's hover shade */
+    --bs-btn-hover-border-color: #6d5f3e; /* Use Bootstrap's hover shade for border */
     --bs-btn-active-bg: rgb(100, 5, 163); /* Use Bootstrap's active shade */
     --bs-btn-active-border-color:  rgb(109, 5, 102); /* Use Bootstrap's active shade for border */
 }
 
 .background-image-container {
-  background-image: url('/purpleGradient.png');
+  background-image: url('/gradient3.png');
   background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;

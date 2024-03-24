@@ -8,71 +8,143 @@ const DynamicLineChart = dynamic(() => import('@/app/components/datahub/LineChar
 const DynamicDoubleLineChart = dynamic(() => import('./DoubleLineChart'), {
   ssr: false,
 });
-const DynamicMap = dynamic(() => import('@/app/components/datahub/Map'), {
-  ssr: false,
-});
 
 interface LineChartDataPoint {
   time: string;
   value: number;
 }
 
+interface Run {
+  runID: string;
+  timestamp: string;
+  dataframe: {
+    temp1: {
+      temp: number;
+      ambientTemp: number;
+    };
+    temp2: {
+      temp: number;
+      ambientTemp: number;
+    };
+    flow: number;
+    coordinate: {
+      lat: number;
+      lng: number;
+    };
+  };
+}
+
 export default function GaugeBoard() {
-  const [lineChartData, setLineChartData] = useState<LineChartDataPoint[]>([]);
   const [showAllGauges, setShowAllGauges] = useState(false);
+  const [runs, setRuns] = useState<Run[]>([]);
+  const [error, setError] = useState<Error | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [temp1LineChartData, setTemp1LineChartData] = useState<LineChartDataPoint[]>([]);
+  const [temp2LineChartData, setTemp2LineChartData] = useState<LineChartDataPoint[]>([]);
+  // Other state variables...
+
+  const fetchSpecificRun = (runID: string) => {
+    const runsWithID = runs.filter((run) => run.runID === runID);
+    // Extract temp1 and temp2 data from the selected run
+    const temp1Data = runsWithID.map((run) => ({
+      time: new Date(run.timestamp).toLocaleTimeString('en-US', { hour12: true}),
+      value: run.dataframe.temp1.temp
+    }));
+    const temp2Data = runsWithID.map((run) => ({
+      time: new Date(run.timestamp).toLocaleTimeString('en-US', { hour12: true }),
+      value: run.dataframe.temp2.temp
+    }));
+    
+      // Set the temp1 and temp2 data for the line charts
+      setTemp1LineChartData(temp1Data);
+      setTemp2LineChartData(temp2Data);
+    };
+
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch("/api/liveData");
+      const data = await response.json();
+      setRuns(data);
+    } catch (err:any) {
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const dataArray = [];
-    let time = new Date('February 17, 2024 19:52:37');
-    for (let i = 0; i < 50; i++) {
-      const value = Math.round(Math.random() * 300);
-      dataArray.push({ time: time.toLocaleTimeString('en-US', { hour12: true }), value });
-      time.setSeconds(time.getSeconds() + 1);
-    }
-    setLineChartData(dataArray);
+    fetchData();
   }, []);
+
+  
 
   const handleToggle = () => {
     setShowAllGauges((prevState) => !prevState);
   };
 
+  // Extracting unique run IDs
+  const uniqueRunIDs = Array.from(new Set(runs.map((run) => run.runID)));
+
+  // Extracting the first timestamp for each run
+  const firstTimestamps = uniqueRunIDs.map((runID) => {
+    const firstRun = runs.find((run) => run.runID === runID);
+    return firstRun ? new Date(firstRun.timestamp) : null;
+  });
+
+// Month abbreviation mapping
+const monthAbbreviations = [
+  'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+  'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'
+];
+
+// Formatting the first timestamps to "MAR 21 2024 HH:mm AM/PM" format
+const formattedFirstTimestamps = firstTimestamps.map((timestamp) => {
+  if (!timestamp) return ''; // If timestamp is null, return an empty string
+  const month = monthAbbreviations[timestamp.getMonth()];
+  const day = String(timestamp.getDate()).padStart(2, '0');
+  const year = timestamp.getFullYear();
+  let hours = String(timestamp.getHours() % 12 || 12).padStart(2, '0');
+  const minutes = String(timestamp.getMinutes()).padStart(2, '0');
+  const ampm = timestamp.getHours() >= 12 ? 'PM' : 'AM';
+  return `${month} ${day} ${year} | ${hours}:${minutes} ${ampm}`;
+});
+
+
+
   return (
+    
     <section>
+       {loading ? (
+        <p>Loading data...</p>
+      ) : error ? (
+        <p>Error fetching data...</p>
+      ) : (
+
       <div className="container-fluid px-4 my-2 bg-black bg-gradient rounded-4 text-light border border-secondary">
+        <div className="row justify-content-center">
+          <button className="btn btn-purple col-2 my-4 py-2"  onClick={fetchData}>Refresh Data</button>
+        </div>
+
         <div className="row justify-content-center">
           <div className="container mt-4">
             <div className="row justify-content-center">
             <ul className="list-group col-10">
+              
                   <li className="list-group-item d-flex justify-content-between align-items-center bg-secondary fw-bold">
                     <span className="col-4">Event Name</span>
-                    <span className="col-4">Data</span>
-                    <span className="col-2">Load</span>
+                    <span className="col-4">Date</span>
+                    <span className="col-2">Select</span>
                   </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center">
-                    <span className="col-4">First Test Run</span>
-                    <span className="col-4">2024-02-17</span>
-                    <button className="btn btn-primary col-2">Load</button>
+                  {uniqueRunIDs.map((runID, index) => (
+                  <li className="list-group-item d-flex justify-content-between align-items-center" key={runID}>
+                    <span className="col-4">Run ID: {runID}</span>
+                    <span className="col-4">{formattedFirstTimestamps[index]}</span>
+                    <button className="btn btn-purple col-2" onClick={() => fetchSpecificRun(runID)}>
+                  Load Run Data
+                  </button>
                   </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center">
-                    <span className="col-4">Practice Run Around Loras</span>
-                    <span className="col-4">2024-02-19</span>
-                    <button className="btn btn-primary col-2">Load</button>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center">
-                    <span className="col-4">SAE Buggy Competition</span>
-                    <span className="col-4">2024-02-25</span>
-                    <button className="btn btn-primary col-2">Load</button>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center">
-                    <span className="col-4">Cross-Country Test</span>
-                    <span className="col-4">2024-03-03</span>
-                    <button className="btn btn-primary col-2">Load</button>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center">
-                    <span className="col-4">Final Tune-Up</span>
-                    <span className="col-4">2024-03-10</span>
-                    <button className="btn btn-primary col-2">Load</button>
-                  </li>
+                   ))}
                 </ul>
             </div>
           </div>
@@ -88,24 +160,20 @@ export default function GaugeBoard() {
         </div>
         {showAllGauges && (
           <>
-            <div className="row justify-content-center my-5">
-              <div className="col-md-6 text-center border border-secondary rounded-4 mx-2 mb-4" style={{ maxWidth: '60vw', minWidth: '22em', minHeight: '27em', width: '30vw', height: '51em' }}>
-                <DynamicDoubleLineChart data={lineChartData.map((point) => [point.time, point.value])} />
-              </div>
-              <div className="col-md-6">
-                <div className="row">
-                  <div className="col-md-12 text-center border border-secondary rounded-4 mb-3 mx-2" style={{ minWidth: '22em', minHeight: '17em', width:'100%', height:"25em" }}>
-                    <DynamicLineChart data={lineChartData.map((point) => [point.time, point.value])} />
-                  </div>
-                  <div className="col-md-12 text-center mx-2 mb-4" style={{ minWidth: '22em', minHeight: '17em', width:'100%', height:"25em"  }}>
-                    <DynamicMap/>
-                  </div>
-                </div>
-              </div>
-            </div>
+  <div className="row justify-content-center">
+    <div className="col-md-6 text-center border border-secondary rounded-4 mx-2 mb-4" style={{ maxWidth: '35vw', minWidth: '17em', minHeight: '20em', width: '33vw', height: '25em' }}>
+      <DynamicLineChart data={temp1LineChartData.map((point) => [point.time, point.value])} />
+    </div>
+    <div className="col-md-6 text-center border border-secondary rounded-4 mx-2 mb-4" style={{ maxWidth: '35vw', minWidth: '17em', minHeight: '20em', width: '33vw', height: '25em' }}>
+      <DynamicLineChart data={temp2LineChartData.map((point) => [point.time, point.value])} />
+    </div>
+  </div>
+
+
           </>
         )}
       </div>
+      )}
     </section>
   );
 }

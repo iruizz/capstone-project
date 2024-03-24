@@ -1,3 +1,5 @@
+// This code allows for handling of live coordinates and additional marker functionality.
+// View Deployed GitHub repo 'DemoGaugeBoard' to see how to implement it.
 'use client'
 import React, { useEffect, useRef, useState } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';

@@ -25,11 +25,14 @@ export default function RootLayout({
     
     <html lang="en">
       <BootstrapClient/>
-      <body className={quicksand.className} style={{ backgroundImage: 'url("/background.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed', }}>
+      <body className={quicksand.className}>
       <AuthProvider>
+      <main className="background-image-container">
       <Navbar/> 
       {children}
       <Footer/>
+      </main>
+      
       </AuthProvider>
       </body> 
     </html>

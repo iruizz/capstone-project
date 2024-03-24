@@ -4,8 +4,8 @@ export default function News() {
 <main className="text-light bg-dark bg-gradient mx-5 mb-3">
   <h1 className="text-center">News & Events</h1>
   <div className="container px-4 pt-4" >
-    <h2 className="pb-2 border-bottom text-center">Recent Events</h2>
-    <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+    <h1 className="pb-2 text-center">Recent Events</h1>
+    <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 pb-5">
       <div className="col">
         <div className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style={{  backgroundSize: 'cover' , backgroundImage: `url('https://images.unsplash.com/photo-1698664683348-f9f35b809821?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}>
           <div className="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
@@ -90,8 +90,8 @@ export default function News() {
     
     
       
-    <h2 className="pb-2 border-bottom text-center">Past Events</h2>
-    <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+    <h1 className="pb-2 text-center">Past Events</h1>
+    <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 pb-5">
       <div className="col">
         <div className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style={{  backgroundSize: 'cover' , backgroundImage: `url('https://images.unsplash.com/photo-1698664683348-f9f35b809821?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}>
           <div className="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
