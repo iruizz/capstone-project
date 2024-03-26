@@ -1,4 +1,4 @@
-import { getRunData, createRun } from "../../utils/db";
+import { getRunData, sendDataFrame, getLastRunID } from "../../utils/db";
 import { pusherServer } from '@/app/lib/pusher';
 
 export async function GET() {
@@ -24,11 +24,40 @@ export async function POST(request: Request) {
     } else {
       // Trigger Pusher event with the received data
       pusherServer.trigger('live-data', 'new-data', data);
-      
-      // Assuming requestData contains necessary fields such as runID, timestamp, and dataframe
-      await createRun('4', new Date().toISOString(), data);
 
-      // Return a successful response
+      // Get the last run ID from the DynamoDB table
+    const lastRunID = await getLastRunID();
+    
+    if(lastRunID?.runID !== undefined && lastRunID?.timestamp!== undefined) {
+    // Calculate the time elapsed since the last dataframe was sent
+    const lastDataFrameTime = new Date(lastRunID.timestamp);
+    const currentTime = new Date();
+    const timeDifference = currentTime.getTime() - lastDataFrameTime.getTime();
+    const timeElapsedMinutes = timeDifference / (1000 * 60); // Convert milliseconds to minutes
+
+    let newRunID = lastRunID.runID; // Initialize newRunID with the last run ID
+
+    // Check if more than 10 minutes have elapsed since the last dataframe was sent and if its an empty table (null timestamp)
+    if (timeElapsedMinutes > 10 && lastRunID.timestamp != null) {
+      // Increment the run ID by 1
+      newRunID = lastRunID.runID + 1
+    }
+    console.log(lastRunID);
+    console.log(newRunID);
+    console.log(timeElapsedMinutes);
+    console.log(lastRunID.timestamp);
+    console.log(data);
+
+    // Adjust the current time by subtracting 5 hours
+    const adjustedTime = new Date(currentTime.getTime());
+
+    // Convert the adjusted time to ISO string
+    const adjustedISOString = adjustedTime.toISOString();
+
+    // Assuming requestData contains necessary fields such as runID, timestamp, and dataframe
+    await sendDataFrame(newRunID, adjustedISOString, data);
+  }
+    // Return a successful response
       return new Response('Request processed successfully', { status: 200 });
     }
   } catch (error:any) {

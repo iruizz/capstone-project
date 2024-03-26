@@ -3,9 +3,10 @@ import ReactECharts from 'echarts-for-react';
 
 interface LineChartProps {
   data: (string | number)[][];
+  title: string;
 }
 
-const LineChart: FC<LineChartProps> = ({ data }) => {
+const LineChart: FC<LineChartProps> = ({ data, title = 'Title' }) => {
   const formattedData: [string, number][] = data.map(([date, value]) => [String(date), Number(value)]);
   const timeList = data.map((item) => item[0]);
 
@@ -28,7 +29,7 @@ const LineChart: FC<LineChartProps> = ({ data }) => {
     title: [
       {
         left: 'center',
-        text: 'CVT Belt Temperature',
+        text: title,
         top:10,
         textStyle: {
           color: '#fff'

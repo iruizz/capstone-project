@@ -190,7 +190,7 @@ export default function GaugeBoard() {
                 <DynamicTempGauge value={tempValue} />
               </div>
               <div className="col-md-6 text-center border border-secondary rounded-4 mx-2 mb-4" style={{ maxWidth: '60vw', minWidth: '17em', minHeight: '20em', width: '45vw', height: '25em' }}>
-                <DynamicLineChart data={lineChartData.map((point) => [point.time, point.value])} />
+                <DynamicLineChart title="CVT Belt Temp" data={lineChartData.map((point) => [point.time, point.value])} />
               </div>
               <div className="col-md-4 text-center mx-2 mb-4" style={{ maxWidth: '41.5vw', minWidth: '25em', minHeight: '20em', width:'35.5vw', height: '25em' }}>
               <DynamicMap/>

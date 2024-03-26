@@ -18,19 +18,10 @@ interface Run {
   runID: string;
   timestamp: string;
   dataframe: {
-    temp1: {
-      temp: number;
-      ambientTemp: number;
-    };
-    temp2: {
-      temp: number;
-      ambientTemp: number;
-    };
-    flow: number;
-    coordinate: {
-      lat: number;
-      lng: number;
-    };
+    speed: number;
+    temp: number;
+    accel:number;
+    fuel: number;
   };
 }
 
@@ -39,32 +30,41 @@ export default function GaugeBoard() {
   const [runs, setRuns] = useState<Run[]>([]);
   const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState(true);
-  const [temp1LineChartData, setTemp1LineChartData] = useState<LineChartDataPoint[]>([]);
-  const [temp2LineChartData, setTemp2LineChartData] = useState<LineChartDataPoint[]>([]);
+  const [tempData, setTempData] = useState<LineChartDataPoint[]>([]);
+  const [speedData, setSpeedData] = useState<LineChartDataPoint[]>([]);
   // Other state variables...
 
   const fetchSpecificRun = (runID: string) => {
     const runsWithID = runs.filter((run) => run.runID === runID);
     // Extract temp1 and temp2 data from the selected run
-    const temp1Data = runsWithID.map((run) => ({
-      time: new Date(run.timestamp).toLocaleTimeString('en-US', { hour12: true}),
-      value: run.dataframe.temp1.temp
+    const tempData = runsWithID.map((run) => ({
+      time: new Date(run.timestamp).toLocaleTimeString('en-US', { hour12: true, timeZone: 'America/Chicago' }), // Specify timeZone
+      value: run.dataframe.speed
     }));
-    const temp2Data = runsWithID.map((run) => ({
-      time: new Date(run.timestamp).toLocaleTimeString('en-US', { hour12: true }),
-      value: run.dataframe.temp2.temp
+    const speedData = runsWithID.map((run) => ({
+      time: new Date(run.timestamp).toLocaleTimeString('en-US', { hour12: true, timeZone: 'America/Chicago' }), // Specify timeZone
+      value: run.dataframe.temp
     }));
     
       // Set the temp1 and temp2 data for the line charts
-      setTemp1LineChartData(temp1Data);
-      setTemp2LineChartData(temp2Data);
-    };
+      setSpeedData(speedData);
+      setTempData(tempData);
+};
+
 
 
   const fetchData = async () => {
     try {
       const response = await fetch("/api/liveData");
       const data = await response.json();
+
+      // Sort the runs by timestamp in increasing order
+      data.sort((a: Run, b: Run) => {
+        const dateA = new Date(a.timestamp);
+        const dateB = new Date(b.timestamp);
+        return dateA.getTime() - dateB.getTime();
+      });
+
       setRuns(data);
     } catch (err:any) {
       setError(err);
@@ -98,17 +98,27 @@ const monthAbbreviations = [
   'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'
 ];
 
-// Formatting the first timestamps to "MAR 21 2024 HH:mm AM/PM" format
 const formattedFirstTimestamps = firstTimestamps.map((timestamp) => {
   if (!timestamp) return ''; // If timestamp is null, return an empty string
-  const month = monthAbbreviations[timestamp.getMonth()];
-  const day = String(timestamp.getDate()).padStart(2, '0');
-  const year = timestamp.getFullYear();
-  let hours = String(timestamp.getHours() % 12 || 12).padStart(2, '0');
-  const minutes = String(timestamp.getMinutes()).padStart(2, '0');
-  const ampm = timestamp.getHours() >= 12 ? 'PM' : 'AM';
-  return `${month} ${day} ${year} | ${hours}:${minutes} ${ampm}`;
+  
+  // Convert UTC timestamp to Central Daylight Time
+  const chicagoTime = new Date(timestamp);
+  chicagoTime.toLocaleString('en-US', { timeZone: 'America/Chicago' });
+
+  // Format the timestamp in CDT
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+    timeZone: 'America/Chicago' // Adjusted to Central Daylight Time
+  });
+  
+  return formatter.format(chicagoTime);
 });
+
 
 
 
@@ -162,10 +172,10 @@ const formattedFirstTimestamps = firstTimestamps.map((timestamp) => {
           <>
   <div className="row justify-content-center">
     <div className="col-md-6 text-center border border-secondary rounded-4 mx-2 mb-4" style={{ maxWidth: '35vw', minWidth: '17em', minHeight: '20em', width: '33vw', height: '25em' }}>
-      <DynamicLineChart data={temp1LineChartData.map((point) => [point.time, point.value])} />
+      <DynamicLineChart title="Speed Data" data={speedData.map((point) => [point.time, point.value])} />
     </div>
     <div className="col-md-6 text-center border border-secondary rounded-4 mx-2 mb-4" style={{ maxWidth: '35vw', minWidth: '17em', minHeight: '20em', width: '33vw', height: '25em' }}>
-      <DynamicLineChart data={temp2LineChartData.map((point) => [point.time, point.value])} />
+      <DynamicLineChart title="Temp Data" data={tempData.map((point) => [point.time, point.value])} />
     </div>
   </div>
 
