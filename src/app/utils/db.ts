@@ -16,7 +16,7 @@ export async function getRunData() {
 export async function sendDataFrame(runID: number, timestamp: string, newData: DataFrame) {
   await dynamoDBClient.send(
     new PutCommand({
-      TableName: process.env.TABLE as string,
+      TableName: process.env.TABLE,
       Item: {
         runID: runID,
         timestamp: timestamp,
